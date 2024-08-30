@@ -1,16 +1,21 @@
 Section 1: Error-Driven Learning in Java 
 
-Snippet 1: Main method is not static
-Snippet 2: Main method not found in class
-Snippet 3: Main method must return a value of type void in class
-Snippet 4: Main method not found in class
-Snippet 5: Yes. main is Overloaded
+Snippet 1: 'main' method is not declared 'public static'
+Snippet 2: 'main' method is not declared 'public static'
+Snippet 3: 'main' method is not declared with a return type of 'void'
+Snippet 4: can't find main(String[]) method in class: Main
+Snippet 5: Main method with String[] args
 Snippet 6: cannot find symbol
 Snippet 7: incompatible types: String cannot be converted to int
 Snippet 8: ')' expected
-Snippet 9: error: not a statement and error: illegal start of type
-           System.out.println(class);
+Snippet 9: error: not a statement
+             int class=10;
+           error: <identifier> expected 
+             int class=10;
+           error: illegal start of expression
+             System.out.println(class);
 Snippet 10: error: non-static method display() cannot be referenced from a static context
+                   non-static method display(int) cannot be referenced from a static context
 Snippet 11: Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5
 Snippet 12: Infinite Loop ......
 Snippet 13: Exception in thread "main" java.lang.NullPointerException
@@ -24,8 +29,9 @@ Snippet 20: error: ';' expected
 Snippet 21: error: reached end of file while parsing
             }
 Snippet 22: error: illegal start of expression
-Snippet 23: Value is 2	Value is 3	Default case
-Snippet 24: Level 1	Level 2	Level 3	Unknown level
-Snippet 25: error: incompatible types: possible lossy conversion from double to int
+Snippet 23: Value is 2    Value is 3    Default case
+Snippet 24: Level 1    Level 2    Level 3    Unknown level
+Snippet 25: patterns in switch statements are a preview feature and are disabled by default.
+            constant label of type int is not compatible with switch selector type double.
 Snippet 26: error: duplicate case label
             case 5:

@@ -4,11 +4,11 @@ Snippet 1: i++
 Snippet 2: count = 0 is not bool do as count == 0
 Snippet 3: num < 10
 Snippet 4: remove =
-Snippet 5: i <= 500
+Snippet 5: i--
 Snippet 6: give in {   }
 Snippet 7: variable count might not have been initialized
-Snippet 8:  num++ and num < 5
+Snippet 8: num++ and num <= 5
 Snippet 9: i++
 Snippet 10: count = 10 is not bool do as count == 10
 Snippet 11: i++
-Snippet 12: 'x' is not accessible here   define in main int x;
+Snippet 12: 'x' is not accessible here define in main int x=1;
