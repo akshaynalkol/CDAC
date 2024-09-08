@@ -1,0 +1,19 @@
+package question1;
+
+class LoanAmortizationCalculator {
+	private double principalAmount;
+	private double annualInterestRate;
+	private double loanTerm;
+
+	public LoanAmortizationCalculator() {
+		this.principalAmount = 0.0;
+		this.annualInterestRate = 0;
+		this.loanTerm = loanTerm = 0;
+	}
+}
+
+public class Program {
+	public static void main(String[] args) {
+		LoanAmortizationCalculator obj = new LoanAmortizationCalculator();
+	}
+}

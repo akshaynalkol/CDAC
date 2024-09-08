@@ -1,0 +1,116 @@
+package question1;
+
+import java.util.Scanner;
+
+class LoanAmortizationCalculator {
+	private double principalAmount;
+	private double annualInterestRate;
+	private double loanTerm;
+
+	public LoanAmortizationCalculator() {
+		this.principalAmount = 0.0;
+		this.annualInterestRate = 0.0;
+		this.loanTerm = loanTerm = 0.0;
+	}
+
+	public double getPrincipalAmount() {
+		return principalAmount;
+	}
+
+	public void setPrincipalAmount(double principalAmount) {
+		this.principalAmount = principalAmount;
+	}
+
+	public double getAnnualInterestRate() {
+		return annualInterestRate;
+	}
+
+	public void setAnnualInterestRate(double annualInterestRate) {
+		this.annualInterestRate = annualInterestRate;
+	}
+
+	public double getLoanTerm() {
+		return loanTerm;
+	}
+
+	public void setLoanTerm(double loanTerm) {
+		this.loanTerm = loanTerm;
+	}
+
+	public double calculateMonthlyPayment() {
+		double monthlyInterestRate = annualInterestRate / (12 * 100);
+		double numberOfMonths = loanTerm * 12;
+
+		double monthlyPayment = principalAmount
+				* (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfMonths))
+				/ (Math.pow(1 + monthlyInterestRate, numberOfMonths) - 1);
+		return monthlyPayment;
+	}
+
+	public double calculateTotalAmountPaid() {
+		return calculateMonthlyPayment() * loanTerm * 12;
+	}
+
+	@Override
+	public String toString() {
+		return "LoanAmortizationCalculator [principalAmount=" + principalAmount + ", annualInterestRate="
+				+ annualInterestRate + ", loanTerm=" + loanTerm + "]";
+	}
+	
+}
+
+class LoanAmortizationCalculatorUtil {
+	private LoanAmortizationCalculator obj = new LoanAmortizationCalculator();
+	static Scanner sc = new Scanner(System.in);
+
+	public void acceptRecord() {
+		System.out.print("Enter the principal amount (in Rs): ");
+		obj.setPrincipalAmount(sc.nextDouble());
+		System.out.print("Enter the annual interest rate (in %): ");
+		obj.setAnnualInterestRate(sc.nextDouble());
+		System.out.print("Enter the loan term (in years): ");
+		obj.setLoanTerm(sc.nextDouble());
+	}
+	
+	public void printRecord( ) {
+		if (obj == null) {
+            System.out.println("No loan data available. Please enter loan details first.");
+            return;
+        }
+
+        System.out.println("\nLoan Details:");
+        System.out.println(obj.toString());
+
+		double monthlyPayment = obj.calculateMonthlyPayment();
+		double totalPayment = obj.calculateTotalAmountPaid();
+		
+		System.out.println("Monthly Payment: Rs%0.2f%n"+monthlyPayment);
+		System.out.println("Total Payment over the life of the loan: Rs %.2f \n"+totalPayment);
+	}
+	
+	public static int menuList( ) {
+		System.out.println("0. Exit.");
+		System.out.println("1. Enter Loan Details.");
+		System.out.println("2. Calculate and Display Loan Details.");
+		System.out.print("Enter choice	:	");
+		int choice = sc.nextInt( );
+		return choice;
+	}
+}
+
+public class Program {
+	public static void main(String[] args) {
+		LoanAmortizationCalculatorUtil utilObj =new LoanAmortizationCalculatorUtil();
+		int choice;
+		while ( (  choice = LoanAmortizationCalculatorUtil.menuList( ) ) != 0 ) {
+			switch( choice ) {
+			case 1:
+				utilObj.acceptRecord();
+				break;
+			case 2:
+				utilObj.printRecord();
+				break;
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+package question1;
+
+import java.util.Scanner;
+
+public class Program {
+	public static void main(String[] args) {
+		LoanAmortizationCalculatorUtil utilObj = new LoanAmortizationCalculatorUtil();
+		
+		int choice;
+		while ((choice = LoanAmortizationCalculatorUtil.menuList()) != 0) {
+			switch (choice) {
+			case 1:
+				utilObj.acceptRecord();
+				break;
+			case 2:
+				utilObj.printRecord();
+				break;
+			}
+		}
+
+		LoanAmortizationCalculatorUtil.sc.close();
+	}
+}

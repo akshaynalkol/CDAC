@@ -1,0 +1,10 @@
+content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaPostfixProposalCategory\u0000org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.javaChainProposalCategory\u0000
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="question2.CompoundInterestCalculatorUtil"><rhs name\="question2.CompoundInterestCalculatorUtil"/></lhs><lhs name\="question2.CompoundInterestCalculator"><rhs name\="question2.CompoundInterestCalculator"/></lhs><lhs name\="question3.BMITrackerUtil"><rhs name\="question3.BMITrackerUtil"/></lhs><lhs name\="question4.DiscountCalculatorUtil"><rhs name\="question4.DiscountCalculatorUtil"/></lhs><lhs name\="question4.DiscountCalculator"><rhs name\="question4.DiscountCalculator"/></lhs><lhs name\="question5.TollBoothRevenueManager"><rhs name\="question5.TollBoothRevenueManager"/></lhs></history>
+content_assist_number_of_computers=20
+eclipse.preferences.version=1
+markOccurrences=false
+org.eclipse.jdt.ui.formatterprofiles.version=23
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true
