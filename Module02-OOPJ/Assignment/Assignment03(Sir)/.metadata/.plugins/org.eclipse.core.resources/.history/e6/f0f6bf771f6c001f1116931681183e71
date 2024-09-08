@@ -1,0 +1,9 @@
+package question5;
+
+class TollBoothRevenueManager
+public class TollBoothRevenueManager {
+	public static void main(String[] args) {
+
+	}
+
+}

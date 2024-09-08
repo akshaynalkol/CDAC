@@ -1,0 +1,52 @@
+package question1;
+
+import java.util.Scanner;
+
+class LoanAmortizationCalculator {
+	private double annualInterestRate;
+	private double principalAmount;
+	private double loanTerm;
+
+	void acceptRecord(Scanner sc) {
+		System.out.print("Enter the principal amount (in ₹): ");
+		this.principalAmount = sc.nextDouble();
+		System.out.print("Enter the annual interest rate (in %): ");
+		this.annualInterestRate = sc.nextDouble();
+		System.out.print("Enter the loan term (in years): ");
+		this.loanTerm = sc.nextDouble();
+	}
+
+	double calculateMonthlyPayment() {
+		double monthlyInterestRate = annualInterestRate / (12 * 100);
+		double numberOfMonths = loanTerm * 12;
+
+		double monthlyPayment = principalAmount
+				* (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfMonths))
+				/ (Math.pow(1 + monthlyInterestRate, numberOfMonths) - 1);
+
+		return monthlyPayment;
+	}
+
+	void printRecord() {
+		double monthlyPayment = calculateMonthlyPayment();
+		double totalPayment = monthlyPayment * loanTerm * 12;
+
+		System.out.printf("Monthly Payment: ₹%f\n", monthlyPayment);
+		System.out.printf("Total Payment over the life of the loan: ₹%f", totalPayment);
+	}
+
+}
+
+public class Program {
+	public static void main(String[] args) {
+		System.out.println("Hello World!!");
+		Scanner sc = new Scanner(System.in);
+
+		LoanAmortizationCalculator obj = new LoanAmortizationCalculator();
+		obj.acceptRecord(sc);
+		obj.printRecord();
+
+		sc.close();
+	}
+
+}
