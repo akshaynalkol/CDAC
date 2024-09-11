@@ -1,0 +1,70 @@
+package org.example.domain;
+
+public class Employee {
+	private static int totalEmployees = 0;
+	private static double totalSalaryExpense = 0.0;
+	public static Employee arr[] = new Employee[10];
+	private static int index = 0;
+	private int empId;
+	private String name;
+	private double salary;
+
+	public Employee(int empId, String name, double salary) {
+		this.empId = empId;
+		this.name = name;
+		this.salary = salary;
+
+		Employee.totalEmployees++;
+		Employee.totalSalaryExpense += salary;
+		Employee.arr[Employee.index++] = this;
+	}
+
+	public int getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
+	public static int getTotalEmployees() {
+		return Employee.totalEmployees;
+	}
+
+	public static void applyRaise(double percentage) {
+		for (Employee emp : arr) {
+			System.out.println(emp.salary);
+//			double raiseAmount = emp.salary * (percentage / 100);
+//			emp.setSalary(emp.salary + raiseAmount);
+		}
+	}
+
+	public static double calculateTotalSalaryExpense() {
+		return totalSalaryExpense;
+	}
+
+	public void updateSalary(double newSalary) {
+		setSalary(newSalary);
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", name=" + name + ", salary=" + salary + "]";
+	}
+}

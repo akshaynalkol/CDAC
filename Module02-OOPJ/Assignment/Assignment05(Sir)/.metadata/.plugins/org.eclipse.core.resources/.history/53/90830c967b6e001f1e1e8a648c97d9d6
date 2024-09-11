@@ -1,0 +1,30 @@
+package org.example.logger;
+
+public class Logger {
+	private static Logger loggerObj;
+	private StringBuffer logMessage;
+
+	private Logger() {
+		logMessage = new StringBuffer();
+	}
+
+	public static Logger getInstance() {
+		if (loggerObj == null) {
+			loggerObj = new Logger();
+		}
+		return loggerObj;
+	}
+
+	public void log(String message) {
+		logMessage.append(message).append("\n");
+//		System.out.println(logMessage);
+	}
+
+	public String getLog() {
+		return logMessage.toString();
+	}
+
+	public void clearLog() {
+		logMessage.setLength(0);
+	}
+}
