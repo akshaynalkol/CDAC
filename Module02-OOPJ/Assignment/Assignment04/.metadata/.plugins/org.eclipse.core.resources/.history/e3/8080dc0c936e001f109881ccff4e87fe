@@ -1,0 +1,14 @@
+package wideningConversion;
+
+public class Program {
+	{
+		System.out.println(111);
+	}
+	static {
+		System.out.println(143);
+	}
+	public static void main(String[] args) {
+		int no1 = 100;
+	}
+
+}
