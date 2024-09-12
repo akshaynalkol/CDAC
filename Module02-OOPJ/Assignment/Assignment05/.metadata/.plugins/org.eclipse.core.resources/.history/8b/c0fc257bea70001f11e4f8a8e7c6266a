@@ -1,0 +1,19 @@
+package org.example;
+
+public class Program {
+	public static void main(String[] args) {
+		Animal animal1=new Animal();
+		animal1.setName("Lion");
+		System.out.println("Name : "+animal1.getName());
+		animal1.eat();
+		animal1.sleep();
+		
+		Animal animal2=new Animal("Cat");
+		System.out.println("Name : "+animal2.getName());
+		animal2.eat();
+		animal2.sleep();
+		
+		
+		
+	}
+}

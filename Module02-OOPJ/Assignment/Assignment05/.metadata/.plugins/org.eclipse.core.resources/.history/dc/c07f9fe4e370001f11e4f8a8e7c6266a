@@ -1,0 +1,8 @@
+package org.example.domain;
+
+public class Program {
+	public static void main(String[] args) {
+		BankAccount bank=new BankAccount("Akshay Nalkol",5000);
+		System.out.println(bank.toString());
+	}
+}

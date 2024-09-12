@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.example.domain.BankAccount"/>
+    <fullyQualifiedTypeName name="org.example.domain.SavingsAccount"/>
+    <fullyQualifiedTypeName name="org.example.Vehicle"/>
+    <fullyQualifiedTypeName name="org.example.Student"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.Module"/>
+    <fullyQualifiedTypeName name="org.example.Motorcycle"/>
+</qualifiedTypeNameHistroy>
