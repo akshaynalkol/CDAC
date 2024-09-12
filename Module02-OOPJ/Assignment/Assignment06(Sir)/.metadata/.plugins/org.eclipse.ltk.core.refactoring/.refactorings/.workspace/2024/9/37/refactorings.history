@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;Question5-Intersection2DArray&apos; to &apos;Question5-IntersectionOfTwoArray&apos;&#x0D;&#x0A;- Original element: &apos;Question5-Intersection2DArray&apos;&#x0D;&#x0A;- Renamed element: &apos;Question5-Intersection2DArray&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;Question5-Intersection2DArray&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=Question5-Intersection2DArray" name="Question5-IntersectionOfTwoArray" references="true" stamp="1725946796413" version="1.0"/>
+</session>

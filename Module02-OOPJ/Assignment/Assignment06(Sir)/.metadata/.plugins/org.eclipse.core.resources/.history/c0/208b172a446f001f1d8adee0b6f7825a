@@ -1,0 +1,10 @@
+package org.example.main;
+
+import org.example.domain.AirplaneSeating;
+
+public class Program {
+	public static void main(String[] args) {
+		AirplaneSeating obj=new AirplaneSeating(2, 2);
+	}
+
+}

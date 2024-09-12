@@ -1,0 +1,25 @@
+package org.example;
+
+import java.util.Arrays;
+
+public class Program {
+	public static void main(String[] args) {
+		int arr1[]= {1,5,2,3,4};
+		int arr2[]= {7,8,6,10,9};
+		
+		int n1=arr1.length;
+		int n2=arr2.length;
+		
+		int res1[]=new int[n1+n2];
+		for(int i=0;i<n1;i++) {
+			res1[i]=arr1[i];
+		}
+		for(int i=n1;i<res1.length;i++) {
+			res1[i]=arr2[i-n1];
+		}
+		
+		Arrays.sort(res1);
+		System.out.println(Arrays.toString(res1));
+	}
+
+}

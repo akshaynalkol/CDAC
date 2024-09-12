@@ -1,0 +1,69 @@
+package org.example.main;
+
+import java.util.Scanner;
+
+import org.example.domain.AirplaneSeating;
+
+public class Program {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print("Enter the number of rows: ");
+		int rows = scanner.nextInt();
+		System.out.print("Enter the number of columns: ");
+		int columns = scanner.nextInt();
+
+		AirplaneSeating seating = new AirplaneSeating(rows, columns);
+
+		int choice;
+		do {
+			System.out.println("\n--- Airplane Seat Management ---");
+			System.out.println("1. Display seating chart");
+			System.out.println("2. Book a seat");
+			System.out.println("3. Cancel a booking");
+			System.out.println("4. Check seat availability");
+			System.out.println("5. Exit");
+			System.out.print("Enter your choice: ");
+			choice = scanner.nextInt();
+
+			switch (choice) {
+			case 1:
+				seating.displaySeatingChart();
+				break;
+			case 2:
+				System.out.print("Enter row to book: ");
+				int bookRow = scanner.nextInt() - 1;
+				System.out.print("Enter column to book: ");
+				int bookCol = scanner.nextInt() - 1;
+				seating.bookSeat(bookRow, bookCol);
+				break;
+			case 3:
+				System.out.print("Enter row to cancel booking: ");
+				int cancelRow = scanner.nextInt() - 1;
+				System.out.print("Enter column to cancel booking: ");
+				int cancelCol = scanner.nextInt() - 1;
+				seating.cancelSeat(cancelRow, cancelCol);
+				break;
+			case 4:
+				System.out.print("Enter row to check availability: ");
+				int checkRow = scanner.nextInt() - 1;
+				System.out.print("Enter column to check availability: ");
+				int checkCol = scanner.nextInt() - 1;
+				if (seating.isSeatAvailable(checkRow, checkCol)) {
+					System.out.println("Seat (" + (checkRow + 1) + "," + (checkCol + 1) + ") is available.");
+				} else {
+					System.out.println("Seat (" + (checkRow + 1) + "," + (checkCol + 1) + ") is occupied.");
+				}
+				break;
+			case 5:
+				System.out.println("Exiting the system.");
+				break;
+			default:
+				System.out.println("Invalid choice. Please try again.");
+			}
+		} while (choice != 5);
+
+		scanner.close();
+	}
+
+}

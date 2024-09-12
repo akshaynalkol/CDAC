@@ -1,0 +1,32 @@
+package org.example;
+
+import java.util.Arrays;
+
+public class Program {
+	public static void main(String[] args) {
+		int arr1[] = { 1, 5, 2, 3, 4 };
+		int arr2[] = { 7, 8, 6, 10, 9 };
+
+		Arrays.sort(arr1);
+		Arrays.sort(arr2);
+		int n1 = arr1.length;
+		int n2 = arr2.length;
+		int res[] = new int[Math.max(n1,n2)];
+		
+		int i = 0, j = 0,k=0;
+		while (i < n1 && j < n2) {
+			if (arr1[i] == arr2[j]) {
+				res[k++]=arr1[i];
+				i++;
+				j++;
+			} else if (arr1[i] < arr2[j]) {
+				i++; 
+			} else {
+				j++;
+			}
+		}
+		
+		System.out.println(j);
+	}
+
+}

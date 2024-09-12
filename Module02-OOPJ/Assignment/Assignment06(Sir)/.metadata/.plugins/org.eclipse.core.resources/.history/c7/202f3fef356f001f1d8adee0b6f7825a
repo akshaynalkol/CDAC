@@ -1,0 +1,25 @@
+package org.example;
+
+import java.util.Arrays;
+
+public class Program {
+	public static void main(String[] args) {
+		int arr[] = { 1, 2, 1, 3, 2, 5 };
+		
+        Arrays.sort(arr);
+
+        int res[]=null;
+        int j = 0;
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] != arr[j]) {
+                j++;
+                res[j] = arr[i];
+            }
+        }
+        
+        for(int i=0;i<j+1;i++) {
+        	System.out.println(arr[i]);
+        }
+	}
+}
