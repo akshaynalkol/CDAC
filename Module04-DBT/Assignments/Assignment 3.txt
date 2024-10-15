@@ -1,0 +1,18 @@
+// Overview of SQL.
+
+1) Does ANSI recognize the data type DATE? 
+--> Yes, ANSI SQL recognizes the DATE data type. The DATE type is used to store dates in a format that typically includes year, month, and day, allowing for operations and comparisons on date values.
+
+Characteristics of the DATE Data Type:
+- Format: The DATE data type usually stores values in the format YYYY-MM-DD. For example, 2024-10-10 represents October 10, 2024.
+- Range: The range of dates that can be represented varies by database system, but it often covers a broad span, such as from 1000-01-01 to 9999-12-31.
+- Operations: You can perform various operations on DATE values, including comparisons, arithmetic operations (like adding or subtracting days), and functions to extract specific components (like year, month, or day).
+- Usage: The DATE type is commonly used in scenarios where you need to track events, schedules, or any time-based data.
+
+
+2) Which subdivision of SQL is used to insert values in tables? 
+--> The subdivision of SQL used to insert values into tables is called Data Manipulation Language (DML). DML includes a set of commands that allow users to manipulate and interact with the data stored in a database.
+DML Commands:
+- INSERT: Used to add new rows to a table.
+- UPDATE: Used to modify existing records in a table.
+- DELETE: Used to remove existing records from a table.

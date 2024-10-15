@@ -1,0 +1,28 @@
+//  Querying Multiple Tables at Once.
+
+USE cdacmumbai;
+
+// 1
+mysql> SELECT Onum, Cname
+    -> FROM Orders, Customers
+    -> WHERE Orders.cnum=Customers.cnum;
+	
+
+// 2
+mysql> SELECT onum, Cname, SName
+    -> FROM Orders, Customers, SalesPerson
+    -> WHERE Orders.Cnum=Customers.Cnum AND Orders.Snum=SalesPerson.Snum;
+	
+
+// 3
+mysql> SELECT Cname, Sname, Comm
+    -> FROM Customers, SalesPerson
+    -> WHERE Customers.Snum=SalesPerson.snum AND
+    ->       Comm>0.12;
+	
+
+// 4
+mysql> SELECT Odate, Sname, Cname, Rating, Amt, Comm*Amt AmtOfComm
+    -> FROM Orders, Customers, SalesPerson
+    -> WHERE Orders.Cnum=Customers.Cnum AND Orders.Snum=SalesPerson.Snum AND
+    ->       Rating>100;

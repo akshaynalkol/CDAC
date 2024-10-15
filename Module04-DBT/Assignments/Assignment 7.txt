@@ -1,0 +1,42 @@
+//  Summarizing Data with Aggregate Functions.
+
+mysql> USE cdacmumbai;
+
+// 1
+mysql> SELECT COUNT(*) AS Count
+    -> FROM ORDERS
+    -> WHERE Odate='1990-10-03';
+
+
+// 2
+mysql> SELECT COUNT(DISTINCT City) FROM CUSTOMERS;
+
+
+// 3
+mysql> SELECT Cnum, MIN(Amt) AS Smallest_Order
+    -> FROM ORDERS
+    -> GROUP BY Cnum
+	-> ORDER BY 1;
+	
+
+// 4
+mysql> SELECT Cname FROM CUSTOMERS
+    -> WHERE Cname LIKE 'G%'
+    -> ORDER BY 1
+    -> LIMIT 1;
+	// OR //
+	-> SELECT MIN(Cnum) AS first_customer
+    -> FROM Customers
+    -> WHERE Cname LIKE 'G%';
+
+
+// 5
+mysql> SELECT City, MAX(Rating)
+    -> FROM CUSTOMERS
+    -> GROUP BY City;	
+	
+
+// 6
+mysql> SELECT ODate, COUNT(Snum) Count
+    -> FROM ORDERS
+    -> GROUP BY ODate;

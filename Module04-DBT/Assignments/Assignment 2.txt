@@ -1,0 +1,14 @@
+//  Introducing Relational Databases.
+
+1) Which field of the Customers table is the primary key? 
+-->  Cnum int(4);
+
+2) What is the 4th column of the Customers table? 
+--> Rating int(10);
+
+3) What is another word for row?  For column? 
+--> For Row - Tuple, Entity
+    For Column - Attribute, Key (Field)
+	
+4) Why isn’t it possible to see the first five rows of a table? 
+--> In RDBMS, rows of table are not stored sequentially; they are not stored in the specific order. Rows of the table are scattered(Fragmented) all over the DB Server Harddisk. If MySQL were to store the rows sequentially then INSERT operation would be very slow. When you SELECT from table, the order of rows in outpt depends on row address; it will always be ascending order of row address.   

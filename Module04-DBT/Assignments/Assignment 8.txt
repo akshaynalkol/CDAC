@@ -1,0 +1,26 @@
+// Formatting Query output.
+
+mysql> USE cdacmumbai;
+
+// 1
+mysql> SELECT Onum, Snum, 0.12*Amt Comm
+    -> FROM ORDERS;
+	
+
+// 2
+mysql> SELECT CONCAT('For the city ', City, ', the highest rating is : ', MAX(Rating)) Output
+    -> FROM Customers
+    -> GROUP BY City;
+	
+
+// 3
+mysql> SELECT Rating, Cname, Cnum
+    -> FROM CUSTOMERS
+    -> ORDER BY 1 DESC;
+	
+
+// 4
+mysql> SELECT Odate, Sum(Amt)
+    -> FROM ORDERS
+    -> GROUP BY Odate
+    -> ORDER BY 2 DESC;

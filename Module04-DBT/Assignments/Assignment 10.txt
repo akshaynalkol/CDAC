@@ -1,0 +1,20 @@
+//  Joining a Table to Itself.
+
+USE cdacmumbai;
+
+// 1
+mysql> SELECT s1.Sname, s2.Sname, s1.City
+    -> FROM SalesPerson s1, SalesPerson s2
+    -> WHERE s1.City=s2.City AND
+    ->       s1.Snum<S2.Snum;
+	
+	
+// 2
+mysql> SELECT Cname, City
+    -> FROM Customers
+    -> WHERE Rating=(SELECT Rating FROM Customers WHERE Cname='Hoffman');
+	// OR //
+	mysql> SELECT c1.Cname, c1.City
+    -> FROM Customers c1, Customers c2
+    -> WHERE c1.Rating=c2.Rating AND
+    ->       c2.Cname='Hoffman';

@@ -1,0 +1,47 @@
+// Using Special Operators in Conditions.
+
+mysql> USE cdacmumbai;
+
+// 1 
+mysql> SELECT * FROM Orders
+    -> WHERE Odate = '1990-10-03' OR Odate = '1990-10-04';
+	// OR //
+mysql> SELECT *
+    -> FROM Orders 
+	-> WHERE Odate IN ('1990-10-03', '1990-10-04');
+	
+
+// 2
+mysql> SELECT * FROM CUSTOMERS
+    -> WHERE Snum= ANY(SELECT Snum FROM SALESPERSON
+    ->                 WHERE Sname IN("Peel","Mptika"));
+	
+
+// 3
+mysql> SELECT * FROM CUSTOMERS 
+    -> WHERE Cname >='A' AND Cname <'H';
+	// OR //
+mysql> SELECT * FROM CUSTOMERS
+    -> WHERE Cname BETWEEN 'A' AND 'H';
+	// OR //
+mysql> SELECT * FROM CUSTOMERS
+    -> WHERE Cname LIKE 'A%' OR
+    ->       Cname LIKE 'B%' OR
+    ->       Cname LIKE 'C%' OR
+    ->       Cname LIKE 'D%' OR
+    ->       Cname LIKE 'E%' OR
+    ->       Cname LIKE 'F%' OR
+    ->       Cname LIKE 'G%';
+	
+
+// 4
+mysql> SELECT * FROM CUSTOMERS
+    -> WHERE Cname LIKE 'C%';
+	// OR //
+mysql> SELECT * FROM CUSTOMERS
+    -> WHERE Cname>='C' AND Cname<'D';
+	
+
+// 5
+mysql> SELECT * FROM ORDERS
+    -> WHERE AMT IS NOT NULL AND Amt!=0;
