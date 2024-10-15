@@ -1,0 +1,51 @@
+mysql> USE cdacmumbai
+
+// 1
+mysql> SELECT * FROM SUPPLIER
+    -> ORDER BY City DESC;
+	
+
+// 2
+mysql> SELECT * FROM parts
+    -> ORDER BY City, Pname;
+	// OR //
+mysql> SELECT * FROM parts
+    -> ORDER BY City ASC, Pname ACS;
+	
+
+// 3
+mysql> SELECT * FROM SUPPLIER
+    -> WHERE Status BETWEEN 10 AND 20;
+	// OR //
+mysql> SELECT * FROM SUPPLIER
+    -> WHERE Status>=10 AND Status<=20;
+	
+
+// 4
+mysql> SELECT Pname, Weight
+    -> FROM PARTS
+    -> WHERE Weight NOT BETWEEN 10 AND 15;
+	// OR //
+mysql> SELECT Pname, Weight
+    -> FROM PARTS
+    -> WHERE NOT(Weight>=10 AND Weight<=15);
+
+// 5
+mysql> SELECT Pname
+    -> FROM PARTS
+    -> WHERE Pname LIKE 'S%';
+	// OR //
+mysql> SELECT Pname
+    -> FROM PARTS
+    -> WHERE Pname>='L' AND Pname<'M';
+	
+
+// 6
+mysql> SELECT * FROM SUPPLIER
+    -> WHERE City LIKE 'L%';
+	
+	
+// 7
+mysql> SELECT *
+    -> FROM PROJECTS
+    -> WHERE Jname LIKE '__n%';

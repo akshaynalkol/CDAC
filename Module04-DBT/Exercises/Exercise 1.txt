@@ -1,0 +1,145 @@
+mysql> USE cdacmumbai;
+
+// 1
+mysql> CREATE TABLE SEMP(
+    ->   EMPNO char(4),
+    ->   EMPNAME char(20),
+    ->   BASIC float,
+    ->   DEPTNO char(2),
+    ->   DEPTHEAD char(4)
+    -> );
+	
+	
+// 2
+mysql> CREATE TABLE SDEPT(
+    ->    DEPTNO char(2),
+    ->    DEPTNAME char(15)
+    -> );
+
+
+// 3
+mysql> INSERT INTO SDEPT
+    -> VALUES
+    -> (10,'Development'),
+    -> (20,'Training');
+
+
+// 4
+mysql> INSERT INTO SEMP(EMPNO, EMPNAME, BASIC, DEPTNO, DEPTHEAD)
+    -> VALUES
+    -> (0001,'SUNIL',6000,10,null),
+    -> (0002,'HIREN',8000,20,null),
+    -> (0003,'ALI',4000,10,0001),
+    -> (0004,'GEORGE',6000,null,0002);
+	
+	
+//
+mysql> CREATE TABLE SUPPLIER(
+    ->   `S#` varchar(2),
+    ->   Sname varchar(10),
+    ->   Status int,
+    ->   City varchar(10)
+    -> );
+mysql> INSERT INTO SUPPLIER
+    -> VALUES
+    -> ('S1','ABC1',10,'Mumbai'),
+    -> ('S2','ABC2',20,'Pune'),
+    -> ('S3','ABC3',30,'Delhi');
+
+mysql> CREATE TABLE PARTS(
+    ->   `P#` varchar(2),
+    ->    Pname varchar(10),
+    ->    Color varchar(10),
+    ->    Weight int,
+    ->    City varchar(10)
+    -> );
+mysql> INSERT INTO PARTS
+    -> VALUES
+    -> ('P1','PQR1','Red',25,'Pune'),
+    -> ('P2','PQR2','Green',50,'Delhi'),
+    -> ('P3','PQR3','Blue',41,'Mumbai');
+	
+mysql> CREATE TABLE PROJECTS(
+    ->   `J#` varchar(2),
+    ->   Jname varchar(10),
+    ->   City varchar(10)
+    -> );
+mysql> INSERT INTO PROJECTS
+    -> VALUES
+    -> ('J1','XYZ1','Delhi'),
+    -> ('J2','XYZ2','Pune'),
+    -> ('J3','XYZ3','Mumbai');
+	
+mysql> CREATE TABLE `SUPPLIER-PARTS-PROJECT`(
+    ->    `S#` varchar(2),
+    ->    `P#` varchar(2),
+    ->    `J#` varchar(2),
+    ->     Qty int
+    -> );
+mysql> INSERT INTO `SUPPLIER-PARTS-PROJECT`
+    -> VALUES
+    -> ('S1','P1','J1',30),
+    -> ('S2','P2','J2',50),
+    -> ('S3','P3','J3',10);
+	
+// 5
+mysql> SELECT * FROM SUPPLIER;
+
+
+// 6
+mysql> SELECT `S#`, SNAME FROM SUPPLIER;
+
+
+// 7
+mysql> SELECT Pname, Color
+    -> FROM PARTS
+    -> WHERE City='London';
+    // OR //
+mysql> SELECT Pname, Color
+    -> FROM PARTS
+    -> WHERE City="London";
+	
+
+// 8 
+mysql> SELECT *
+    -> FROM SUPPLIER
+    -> WHERE City='London';
+	
+	
+// 9
+mysql> SELECT *
+    -> FROM SUPPLIER
+    -> WHERE city='Paris' OR city='Athens';
+	
+
+// 10
+mysql> SELECT * FROM PROJECTS;
+
+
+// 11
+mysql> SELECT *
+    -> FROM PARTS
+    -> WHERE weight>=12 AND weight<=14;
+	
+
+// 12
+mysql> SELECT *
+    -> FROM SUPPLIER
+    -> WHERE status>=20;
+	
+
+// 13
+mysql> SELECT *
+    -> FROM SUPPLIER
+    -> WHERE city!='London';
+	
+
+// 14
+mysql> SELECT city FROM SUPPLIER;
+
+
+//15
+mysql> SELECT weight as 'WEIGHT(Grams)',
+    ->        weight*1000 as 'WEIGHT(MilliGrams)',
+    ->        weight/1000 as 'WEIGHT(KilloGrams)'
+    -> FROM PARTS;

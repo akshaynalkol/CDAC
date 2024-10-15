@@ -1,0 +1,67 @@
+mysql> USE cdacmumbai
+
+// 1
+mysql> SELECT MIN(Status) FROM Supplier;
+
+
+// 2
+mysql> SELECT MAX(Weight) FROM Parts;
+
+
+// 3
+mysql> SELECT AVG(Weight) FROM Parts;
+
+
+// 4
+mysql> SELECT `P#`, SUM(Qty)
+    -> FROM `Supplier-Parts-Project`
+    -> WHERE `P#`='P1';
+
+
+// 5
+mysql> SELECT `P#`, SUM(Qty)
+    -> FROM `Supplier-Parts-Project`
+    -> GROUP BY `P#`;
+
+
+// 6
+mysql> SELECT `P#`, AVG(Qty)
+    -> FROM `Supplier-Parts-Project`
+    -> GROUP BY `P#`;	
+	
+
+// 7
+mysql> SELECT `P#`, MAX(Qty)
+    -> FROM `Supplier-Parts-Project`
+    -> GROUP BY `P#`
+    -> HAVING MAX(Qty)>800;
+	
+	
+// 8
+mysql> SELECT Status, Count(*)
+    -> FROM Supplier
+    -> GROUP BY Status;
+	
+
+// 9
+mysql> SELECT City, COUNT(*)
+    -> FROM Projects
+    -> GROUP BY City;
+	
+
+// 10 - What is the difference between COUNT(Status) and COUNT(*) ? 
+---->   COUNT(Sttsus) - This function counts only the rows where the Status column is not NULL.
+        COUNT(*) - This function counts all rows in the result set, regardless of whether any column values are NULL.
+		
+
+// 11
+mysql> SELECT
+    ->       CASE
+    ->           WHEN Status=10 THEN 'Ten'
+    ->           WHEN Status=20 THEN 'Twenty'
+    ->           WHEN Status=30 THEN 'Thirty'
+    ->           ELSE 'Others'
+    ->       END Status,
+    ->       Count(*) Count
+    -> FROM Supplier
+    -> GROUP BY Status;

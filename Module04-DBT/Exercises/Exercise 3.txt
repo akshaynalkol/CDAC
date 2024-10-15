@@ -1,0 +1,72 @@
+mysql> USE cdacmumbai
+
+// 1
+mysql> SELECT CONCAT(UPPER(SUBSTR(Sname,1,1)),SUBSTR(Sname,2)) AS "Sname"
+    -> FROM SUPPLIER;
+	
+
+// 2
+mysql> SELECT UPPER(Sname) FROM SUPPLIER;
+
+
+// 3
+mysql> SELECT LOWER(Sname) FROM SUPPLIER;
+
+
+// 4
+mysql> SELECT LPAD(Sname,25," ") AS Sname
+    -> FROM SUPPLIER;
+	
+	
+// 5
+mysql> SELECT REPLACE(Sname,'la','ro')
+    -> FROM SUPPLIER;
+	
+
+// 6
+mysql> SELECT REPLACE(REPLACE(Sname,'l','r'),'a','o') AS Sname
+    -> FROM SUPPLIER;
+
+
+// 7
+mysql> SELECT Sname, LENGTH(Sname) AS Length
+    -> FROM SUPPLIER;
+	
+
+// 8
+mysql> SELECT * FROM SUPPLIER
+    -> WHERE SOUNDEX(Sname)=SOUNDEX('BLOKE');
+	
+
+// 9
+mysql> SELECT Sname,
+    ->        CASE Status
+    ->             WHEN 10 THEN 'Ten'
+    ->             WHEN 20 THEN 'Twenty'
+    ->             WHEN 30 THEN 'Thirty'
+    ->             Else 'Other'
+    ->        END AS 'Status In Words'
+    -> FROM SUPPLIER;
+	// OR //
+mysql> SELECT Sname,
+    ->        CASE 
+    ->             WHEN Status=10 THEN 'Ten'
+    ->             WHEN Status=20 THEN 'Twenty'
+    ->             WHEN Status=30 THEN 'Thirty'
+    ->             Else 'Other'
+    ->        END AS 'Status In Words'
+    -> FROM SUPPLIER;
+	// OR //
+mysql> SELECT Sname,
+    ->        IF(Status=10, 'Ten',
+    ->        IF(Status=20, 'Twenty',
+    ->        IF(Status=30, 'Thirty', 'Other'))) AS 'Status In Words'
+    -> FROM SUPPLIER;
+
+
+// 10
+mysql> SELECT DAYNAME(SYSDATE()) AS 'Day Name';
+              // OR //
+mysql> SELECT DAYNAME(SYSDATE()) AS 'Day Name' FROM DUAL;
+              // OR //
+mysql> SELECT DAYNAME(CURDATE()) AS 'Day Name';
