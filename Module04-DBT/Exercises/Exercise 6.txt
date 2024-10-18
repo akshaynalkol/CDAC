@@ -1,0 +1,71 @@
+mysql> USE cdacmumbai
+
+// 1
+mysql> SELECT * FROM Supplier
+    -> WHERE Status=(SELECT Status FROM Supplier WHERE Sname='Clark');
+	
+	
+// 2
+mysql> SELECT * FROM Emp
+    -> WHERE DeptNo=(SELECT DeptNo FROM Emp WHERE Ename='Miller');
+	
+	
+// 3
+mysql> SELECT * FROM Parts
+    -> WHERE Weight>(SELECT MAX(Weight) FROM Parts Where Color='Red');
+	
+	
+// 4
+mysql> SELECT * FROM Projects
+    -> WHERE City=(SELECT City FROM Projects Where Jname='Tape');
+	
+	
+// 5
+mysql> SELECT * FROM Parts
+    -> WHERE Weight<(SELECT MIN(Weight) FROM Parts Where Color='Green');
+	
+	
+// 6
+mysql> SELECT Sname
+    -> FROM Supplier S, `Supplier-Parts-Project` Spj
+    -> WHERE S.`S#`=Spj.`S#` AND Qty=(SELECT Max(Qty) FROM `Supplier-Parts-Project`);
+	
+	
+// 7
+mysql> SELECT Ename FROM Emp
+    -> WHERE Sal=(SELECT MIN(Sal) FROM Emp);
+	
+	
+// 8
+mysql> SELECT Sname FROM Supplier
+    -> WHERE `S#`=(SELECT `S#` FROM `Supplier-Parts-Project`
+    ->             GROUP BY `S#`
+    ->             ORDER BY SUM(Qty) DESC
+    ->             LIMIT 1);
+	// OR //
+mysql> SELECT Sname, SUM(Qty)
+    -> FROM Supplier, `Supplier-Parts-Project` Spj
+    -> WHERE Supplier.`S#`=Spj.`S#`
+    -> GROUP BY Sname
+    -> ORDER BY SUM(Qty) DESC
+    -> LIMIT 1;
+	
+	
+// 9
+mysql> CREATE TABLE DEPT(
+    ->   DeptNo int,
+    ->   Dname varchar(10),
+    ->   Loc Varchar(10)
+    -> );
+
+mysql> INSERT INTO Dept
+    -> VALUES
+    -> (1,'TRN','Bby'),
+    -> (2,'EXP','Dlh'),
+    -> (3,'MKTG','Cal');
+	
+mysql> SELECT Dname FROM Dept
+    -> WHERE DeptNo=(SELECT DeptNo FROM EMP
+    ->               GROUP BY Deptno
+    ->               ORDER BY COUNT(*) DESC
+    ->               LIMIT 1);
