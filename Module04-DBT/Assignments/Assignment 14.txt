@@ -1,0 +1,26 @@
+// Entering, Deleting, and Changing Field Values.
+ 
+mysql> USE cdacmumbai;
+
+// 1
+mysql> INSERT INTO SalesPerson
+    -> (City, Sname, Comm, Snum)
+    -> VALUES
+    -> ('San Jose','Blanco',Null,1100);
+	
+	
+// 2
+mysql> DELETE FROM Customers
+    -> WHERE Cname='Clemens';
+	
+	
+// 3
+mysql> UPDATE Customers
+    -> SET Rating=Rating+100
+    -> WHERE City='Rome';
+	
+
+// 4
+mysql> UPDATE Customers
+    -> SET Snum=(SELECT Snum FROM SalesPerson WHERE Sname='Motika')
+    -> WHERE Snum=(SELECT Snum FROM SalesPerson WHERE Sname='Serres');

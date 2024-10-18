@@ -1,0 +1,27 @@
+//  Subqueries.
+
+mysql> USE cdacmumbai;
+
+// 1 
+mysql> SELECT * FROM Orders
+    -> WHERE Cnum=(SELECT Cnum FROM Customers WHERE Cname='Cisneros');
+	
+	
+// 2
+mysql> SELECT Cname, Rating FROM Customers
+    -> WHERE Cnum IN (SELECT Cnum FROM Orders
+    ->             GROUP BY Cnum
+    ->             HAVING AVG(Amt)>(SELECT AVG(Amt) FROM Orders));
+	// OR //
+mysql> SELECT Cname, Rating FROM Customers
+    -> WHERE Cnum = ANY(SELECT Cnum FROM Orders
+    ->             GROUP BY Cnum
+    ->             HAVING AVG(Amt)>(SELECT AVG(Amt) FROM Orders));
+	
+	
+// 3
+mysql> SELECT SalesPerson.Snum, Sname, SUM(Amt)
+    -> FROM Orders, SalesPerson
+    -> WHERE Orders.Snum=SalesPerson.Snum
+    -> GROUP BY Snum, Sname
+    -> HAVING SUM(Amt)>(SELECT MAX(Amt) FROM Orders);

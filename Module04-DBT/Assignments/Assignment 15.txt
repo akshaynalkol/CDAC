@@ -1,0 +1,52 @@
+//  Using Subqueries with DML Commands.
+
+mysql> USE cdacmumbai;
+
+// 1
+mysql> CREATE TABLE MUlticust(
+    ->   Snum int,
+    ->   Sname Varchar(10),
+    ->   City Varchar(10),
+    ->   Comm Float
+    -> );
+	
+mysql> INSERT INTO Multicust(Snum, Sname, City, Comm)
+    -> SELECT *
+    -> FROM SalesPerson
+    -> WHERE Snum IN (SELECT Snum FROM Customers
+    ->                GROUP BY Snum
+    ->                HAVING COUNT(Cnum)>1
+	-> );
+	// OR //
+mysql> INSERT INTO Multicust (Snum, Sname, City, Comm)
+    -> SELECT S.Snum, S.Sname, S.City, S.Comm
+    -> FROM Salesperson S
+    -> WHERE S.Snum IN ( SELECT C.Snum FROM Customers C
+    ->                   GROUP BY C.Snum
+    ->                   HAVING COUNT(C.Cnum) > 1
+    -> );
+	
+	
+// 2
+mysql> DELETE FROM Customers
+    -> WHERE Cnum NOT IN (SELECT Cnum FROM Orders);
+	
+	
+// 3
+mysql> UPDATE SalesPerson
+    -> SET Comm = Comm * 1.20
+    -> WHERE Snum IN (
+    ->     SELECT Snum
+    ->     FROM Orders
+    ->     GROUP BY Snum
+    ->     HAVING SUM(Amt) > 3000
+    -> );
+	// OR //
+mysql> UPDATE SalesPerson
+    -> SET Comm = Comm + (Comm*0.20)
+    -> WHERE Snum IN (
+    ->     SELECT Snum
+    ->     FROM Orders
+    ->     GROUP BY Snum
+    ->     HAVING SUM(Amt) > 3000
+    -> );

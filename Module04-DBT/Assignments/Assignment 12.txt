@@ -1,0 +1,40 @@
+// Using the operators IN, ANY, and ALL.  
+
+USE cdacmumbai;
+
+// 1
+mysql> SELECT * FROM Customers
+    -> WHERE rating >= ANY (SELECT rating 
+                     FROM Customers 
+                     WHERE cname = 'Serres');
+					 
+mysql> SELECT * FROM Customers
+    -> WHERE Rating>=ANY(SELECT Rating FROM Customers
+    ->                   WHERE Snum=(SELECT Snum FROM SalesPerson
+    ->                               WHERE Sname='Serres'));
+	
+
+// 2
+mysql> SELECT Sname FROM SalesPerson s                              // ALL
+    -> WHERE city!= ALL(SELECT city FROM Customers c
+    ->                  WHERE c.Snum=s.Snum);
+	
+mysql> SELECT Sname FROM SalesPerson s                              // ANY
+    -> WHERE city!= ANY(SELECT city FROM Customers c
+    ->                  WHERE c.Snum=s.Snum);
+	
+	
+// 3
+mysql> SELECT * From Orders
+    -> WHERE Amt> ANY(SELECT Amt FROM Orders, Customers
+    ->                WHERE Orders.Cnum=Customers.Cnum AND City='London');
+	
+	
+// 4
+mysql> SELECT * From Orders                                        // MIN
+    -> WHERE Amt>(SELECT MIN(Amt) FROM Orders, Customers
+    ->            WHERE Orders.Cnum=Customers.Cnum AND City='London');
+	
+mysql> SELECT * From Orders                                       // MAX
+    -> WHERE Amt>(SELECT MAX(Amt) FROM Orders, Customers
+    ->            WHERE Orders.Cnum=Customers.Cnum AND City='London');
