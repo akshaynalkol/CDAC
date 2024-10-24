@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url(./Image/Contact.jpg) no-repeat scroll center/cover;
+        }
+
+        form {
+            width: 30%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px);
+            border-radius: 5px;
+        }
+
+        form h1 {
+            margin-top: 0;
+            color: white;
+            text-align: center;
+        }
+
+        form input {
+            display: block;
+            width: 95%;
+            padding: 8px;
+            margin-bottom: 18px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            border-bottom: 1px solid white;
+        }
+
+        form input::placeholder {
+            color: white;
+        }
+
+        form h4 {
+            margin: 0;
+            color: white;
+            font-weight: normal;
+            padding-left: 8px;
+        }
+
+        form textarea {
+            display: block;
+            width: 95%;
+            padding: 8px;
+            margin-bottom: 18px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            border-bottom: 1px solid white;
+        }
+
+        form button {
+            display: block;
+            width: 100%;
+            font-weight: bold;
+            padding: 10px 16px;
+            color: black;
+            background-color: white;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <h1>Contact Us Form</h1>
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="mobile" placeholder="Mobile" required>
+            <h4>Type Your Message Here...</h4>
+            <textarea required></textarea>
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

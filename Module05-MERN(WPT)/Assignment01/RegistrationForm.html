@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <style>
+        .main {
+            width: 50%;
+            margin: auto;
+            border: 1px solid;
+        }
+
+        .head {
+            padding: 30px 20px;
+            border-bottom: 1px solid black;
+        }
+
+        .head h2,
+        .head p {
+            margin: 2px 0;
+        }
+
+        .container {
+            padding: 25px 20px;
+        }
+
+        .container .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 2px;
+            font-size: 18px;
+            font-weight: 550;
+        }
+
+        input {
+            padding: 5px 8px;
+        }
+
+        select {
+            padding: 6px 8px;
+        }
+
+        textarea {
+            height: 80px;
+            padding: 8px 8px;
+        }
+
+        .custom-width {
+            width: 97%;
+        }
+
+        .custom-space {
+            padding: 10px 0;
+        }
+
+        button {
+            padding: 8px 30px;
+            color:aliceblue;
+            background-color: green;
+            border: 0;
+            border-radius: 2px;
+            /* font-size: 20px; */
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="head">
+            <h2>Registration Form</h2>
+            <p>Fill out the form carefully for registration.</p>
+        </div>
+        <div class="container">
+            <div class="custom-space">
+                <label for="name">Student Name</label>
+                <div class="flex">
+                    <input type="text" id="name" placeholder="First Name" />
+                    <input type="text" placeholder="Middle Name" />
+                    <input type="text" placeholder="Last Name" />
+                </div>
+            </div>
+            <div class="flex custom-space">
+                <div>
+                    <label for="dob">Birth Date</label>
+                    <input type="date" id="dob" style="width: 280px; " />
+                </div>
+                <div>
+                    <label for="gender">Gender</label>
+                    <select id="gender" style="width: 300px; ">
+                        <option>- select -</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="custom-space">
+                <label for="address">Address</label>
+                <input type="text" placeholder="Street Address" id="address" class="custom-width" />
+                <input type="text" placeholder="Street Address Line 2" class="custom-width" style="margin-top:5px ;" />
+                <div class="flex" style="margin: 5px 0;">
+                    <input type="text" placeholder="City" style="width: 280px; " />
+                    <input type="text" placeholder="State" style="width: 280px; " />
+                </div>
+                <input type="text" placeholder="Postal / Zip Code" class="custom-width" />
+            </div>
+            <div class="flex custom-space">
+                <div>
+                    <label for="email">E-mail</label>
+                    <input type="email" placeholder="example@gmail.com" id="email" style="width: 280px; " />
+                </div>
+                <div>
+                    <label for="phoneNo">Mobile Number</label>
+                    <input type="tel" placeholder="000-0000-000" id="phoneNo" style="width: 280px; " />
+                </div>
+            </div>
+            <div class="custom-space">
+                <label for="msg">Additional Comments</label>
+                <textarea placeholder="Message" id="msg" class="custom-width"></textarea>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <button>Submit</button>
+        </div>
+    </div>
+</body>
+
+</html>

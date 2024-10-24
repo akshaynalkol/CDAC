@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .container{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(103,99,231);
+        }
+
+        .box{
+            width: 25%;
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            /* border: 1px solid black; */
+            border-radius: 5px;
+        }
+
+        .box h1{
+            margin-top: 0;
+        }
+
+        .box input{
+            display: block;
+            width: 90%;
+            padding: 8px 16px;
+            margin-bottom: 16px;
+            
+        }
+
+        button{
+            display: block;
+            width: 100%;
+            font-weight: bold;
+            padding: 10px 16px;
+            color: white;
+            background-color: rgb(103,99,231);
+            border: 0;
+        }
+
+        .box p{
+            margin: 0px;
+        }
+
+        .box p span{
+            color: rgb(106,192,239);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Login</h1>
+            <input type="email" placeholder="Enter E-mail" />
+            <input type="password" placeholder="Enter Password" />
+            <button>Login</button>
+            <p>
+                Not a member?
+                <a href="https://www.facebook.com">SignUp Here</a>
+            </p>
+        </div>
+    </div>
+</body>
