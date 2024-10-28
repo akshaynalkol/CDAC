@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fetchData(url, callback) {
+            console.log(`Fetching data from ${url}`);
+
+            setTimeout(() => {
+                const isError = Math.random() > 0.5; // 50% chance of error
+
+                if (isError) {
+                    callback(`Error: Unable to fetch data from ${url}`);
+                } else {
+                    const response = `Response from ${url}`;
+                    callback(null, response); // First parameter null indicating no error
+                }
+            }, 2000);
+        }
+
+        fetchData('https://api.example.com/data', (error, response) => {
+            if (error) {
+                console.error('Error occurred:', error);
+            } else {
+                console.log('Received:', response);
+            }
+        });
+    </script>
+</body>
+
+</html>
