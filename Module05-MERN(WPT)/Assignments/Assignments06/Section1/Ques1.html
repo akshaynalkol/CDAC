@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const TAX_RATE = 0.08; // 8% tax
+        let totalPrice = 0;
+        let cartItems = [];
+
+        function addItem(name, price) {
+            var itemPrice = price;
+            cartItems.push({ name: name, price: itemPrice });
+
+            totalPrice += itemPrice * (1 + TAX_RATE);
+            console.log(`Added ${name} to the cart. Price: ${itemPrice.toFixed(2)}`);
+            console.log(`Current total: ${totalPrice.toFixed(2)}`);
+        }
+
+        function viewCart() {
+            console.log("\nShopping Cart:");
+            cartItems.forEach((item, index) => {
+                console.log(`${index + 1}. ${item.name} - ${item.price.toFixed(2)}`);
+            });
+            console.log(`Total Price (with tax): ${totalPrice.toFixed(2)}`);
+        }
+
+        function clearCart() {
+            cartItems = [];
+            totalPrice = 0;
+            console.log("\nCart has been cleared.");
+        }
+
+        addItem("Laptop", 1200);
+        addItem("Headphones", 150);
+        addItem("Keyboard", 80);
+        viewCart();
+        clearCart();
+        viewCart();
+
+    </script>
+</body>
+
+</html>

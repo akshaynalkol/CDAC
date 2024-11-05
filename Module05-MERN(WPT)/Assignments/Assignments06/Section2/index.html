@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Variables
+        let expenses = []; // Array to store expenses
+        let totalExpense = 0;
+
+        // Expense Constructor using Object with properties
+        const createExpense = (description, amount, date) => ({
+            description,
+            amount,
+            date: date || new Date().toLocaleDateString()
+        });
+
+        // Arrow Function to add expense
+        const addExpense = (description, amount, date) => {
+            const newExpense = createExpense(description, amount, date);
+            expenses = [...expenses, newExpense]; // Spread operator to create a new array
+            calculateTotal();
+            showExpenses();
+            showSuccessMessage(() => console.log("Expense added successfully! \n\n"));
+        };
+
+        // Function to calculate total expenses using reduce
+        const calculateTotal = () => {
+            totalExpense = expenses.reduce((sum, { amount }) => sum + amount, 0);
+            console.log(`Total Expense: $${totalExpense}`);
+        };
+
+        // Function to display all expenses using map
+        const showExpenses = () => {
+            expenses.map(({ description, amount, date }) => {
+                console.log(`Expense: ${description} | Amount: $${amount} | Date: ${date}`);
+            });
+        };
+
+        // Filter expenses greater than a specified amount (e.g., $20)
+        const filterExpenses = (minAmount) => {
+            const filtered = expenses.filter(({ amount }) => amount > minAmount);
+            console.log(`Expenses above $${minAmount}:`);
+            filtered.forEach(({ description, amount }) => console.log(description, amount));
+            console.log("\n");
+        };
+
+        // Callback function to display a success message
+        const showSuccessMessage = (callback) => {
+            callback();
+        };
+
+        // Closure to maintain total expense state
+        const createTotalExpenseTracker = () => {
+            let total = 0;
+            return (amount) => (total += amount);
+        };
+
+        // Promise to simulate fetching initial expenses
+        const fetchInitialExpenses = () => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve([
+                        { description: "Groceries", amount: 50, date: "2023-11-01" },
+                        { description: "Gas", amount: 30, date: "2023-11-02" }
+                    ]);
+                }, 1000);
+            });
+        };
+
+        // Async/Await to fetch and display initial expenses on load
+        const initializeExpenses = async () => {
+            const initialExpenses = await fetchInitialExpenses();
+            expenses = [...expenses, ...initialExpenses];
+            showExpenses();
+            calculateTotal();
+        };
+
+        // Using Rest Operator to add multiple expenses at once
+        const addMultipleExpenses = (...newExpenses) => {
+            newExpenses.forEach(({ description, amount, date }) => addExpense(description, amount, date));
+        };
+
+        // Initialize and display initial expenses
+        initializeExpenses();
+
+        // Adding sample expenses to test the application
+        addExpense("Coffee", 5);
+        addExpense("Rent", 500);
+        addMultipleExpenses(
+            { description: "Electricity Bill", amount: 100, date: "2023-11-03" },
+            { description: "Dinner", amount: 25 }
+        );
+
+        // Display filtered expenses
+        filterExpenses(20);
+    </script>
+</body>
+
+</html>

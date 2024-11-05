@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const cart = [
+            { item: "Apple", price: 1.50, quantity: 3 },
+            { item: "Banana", price: 0.75, quantity: 2 },
+            { item: "Orange", price: 1.25, quantity: 5 },
+            { item: "Mango", price: 2.00, quantity: 1 }
+        ];
+
+        const totalPrice = cart.reduce((total, item) => {
+            return total + item.price * item.quantity;
+        }, 0);
+
+        console.log(`Total Price: ${totalPrice}`); 
+    </script>
+</body>
+
+</html>

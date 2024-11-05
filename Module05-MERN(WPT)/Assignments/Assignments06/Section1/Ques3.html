@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const book = {
+            title: 'The Leader',
+            author: 'Tilak',
+            yearPublished: 1960,
+            // displayDetails: function () {
+            //     console.log(`Title: ${this.title}`);
+            //     console.log(`Author: ${this.author}`);
+            //     console.log(`Year Published: ${this.yearPublished}`);
+            // }
+
+            // displayDetails() {
+            //     console.log(`Title: ${this.title}`);
+            //     console.log(`Author: ${this.author}`);
+            //     console.log(`Year Published: ${this.yearPublished}`);
+            // }
+
+            displayDetails: () => {
+                // 'this' won't refer to the object here, so be cautious
+                console.log(`Title: ${book.title}`);
+                console.log(`Author: ${book.author}`);
+                console.log(`Year Published: ${book.yearPublished}`);
+            }
+        }
+        book.displayDetails();
+    </script>
+</body>
+
+</html>
