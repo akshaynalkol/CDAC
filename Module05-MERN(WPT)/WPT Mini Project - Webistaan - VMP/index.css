@@ -1,0 +1,62 @@
+* {
+    scroll-behavior: smooth;
+    scroll-padding-top: 60px;
+}
+
+#home {
+    padding: 160px 0;
+    background: url(./Image/baner.avif) no-repeat scroll center 10%/cover;
+    position: relative;
+    z-index: 1;
+}
+
+#home::after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: rgba(4, 37, 61, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+
+#featuredProgram,
+#contact {
+    padding: 60px 0;
+}
+
+#box {
+    padding: 40px 0 60px 0;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    background: url(./Image/footer.avif) no-repeat scroll center -135px/cover;
+    color: white !important;
+    text-align: center;
+    padding: 40px 0;
+    position: relative;
+    z-index: 1;
+}
+
+footer::after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: rgba(4, 37, 61, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
